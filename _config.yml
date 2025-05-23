@@ -1,0 +1,47 @@
+# Configuração do GitHub Pages
+title: "Advanced HTTP Request Interceptor"
+description: "Biblioteca profissional para interceptação e monitoramento de requisições HTTP em Node.js"
+url: "https://elsilveira.github.io"
+baseurl: ""
+
+# Configurações do Jekyll
+markdown: kramdown
+highlighter: rouge
+theme: null
+
+# Configurações de plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Configurações de exclusão
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - .npmignore
+  - dist/
+  - src/
+  - test/
+  - examples/
+  - "*.tgz"
+  - README.md
+  - request-interceptor-readme.md
+
+# Configurações de inclusão
+include:
+  - landing/
+  - .nojekyll
+
+# SEO e metadados
+author: "elSilveira"
+repository: "elsilveira/advanced-http-request-interceptor"
+
+# Configurações sociais
+github_username: elsilveira
+
+# Configurações de build
+safe: true
+incremental: false
+future: false 

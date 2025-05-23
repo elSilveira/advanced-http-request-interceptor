@@ -27,11 +27,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/duti/advanced-http-request-interceptor.git"
+    "url": "https://github.com/elSilveira/advanced-http-request-interceptor.git"
   },
-  "homepage": "https://github.com/duti/advanced-http-request-interceptor#readme",
+  "homepage": "https://github.com/elSilveira/advanced-http-request-interceptor#readme",
   "bugs": {
-    "url": "https://github.com/duti/advanced-http-request-interceptor/issues"
+    "url": "https://github.com/elSilveira/advanced-http-request-interceptor/issues"
   },
   "files": [
     "dist/**/*",
