@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTTP Request Interceptor - Monitore suas APIs com facilidade</title>
+    <meta name="description" content="Biblioteca completa para interceptar, monitorar e fazer log de requisições HTTP em aplicações Express com métricas avançadas e auditoria de segurança.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>HTTP Interceptor</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Recursos</a>
+                <a href="#examples">Exemplos</a>
+                <a href="#docs">Documentação</a>
+                <a href="#install" class="btn-primary">Instalar</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-animation"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Nova versão disponível</span>
+                </div>
+                <h1 class="hero-title">
+                    Monitore suas APIs Express com 
+                    <span class="gradient-text">inteligência</span>
+                </h1>
+                <p class="hero-description">
+                    Sistema completo de interceptação, logging e monitoramento para aplicações Express. 
+                    Capture métricas, analise performance e garanta a segurança de suas APIs.
+                </p>
+                <div class="hero-actions">
+                    <a href="#install" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Instalar Agora
+                    </a>
+                    <a href="#demo" class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Ver Demo
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">TypeScript</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Dependências</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24KB</span>
+                        <span class="stat-label">Bundle Size</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <span class="terminal-title">request-interceptor</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">npm install advanced-http-request-interceptor</span>
+                        </div>
+                        <div class="terminal-output">
+                            <div class="log-entry">
+                                <span class="timestamp">[2025-05-23T06:11:13.170Z]</span>
+                                <span class="level info">[INFO]</span>
+                                <span class="message">HTTP Request: POST /api/users</span>
+                            </div>
+                            <div class="log-entry">
+                                <span class="metric">📊 Duration: 45ms | Size: 256 bytes</span>
+                            </div>
+                            <div class="log-entry">
+                                <span class="metric">🌐 IP: 192.168.1.100 | User-Agent: Chrome/120.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recursos Poderosos</h2>
+                <p>Tudo que você precisa para monitorar e otimizar suas APIs</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Interceptação Completa</h3>
+                    <p>Capture todas as requisições HTTP com detalhes completos sobre método, URL, headers e corpo da requisição.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Métricas de Performance</h3>
+                    <p>Monitore duração, frequência e padrões de uso de cada endpoint com estatísticas em tempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Logging Avançado</h3>
+                    <p>Sistema de logs estruturados com níveis configuráveis e suporte a loggers personalizados.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Auditoria de Segurança</h3>
+                    <p>Registro detalhado de IPs, headers e dados para compliance e investigação de incidentes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>TypeScript Nativo</h3>
+                    <p>Suporte completo ao TypeScript com tipagens precisas e autocomplete inteligente.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                    <h3>Zero Dependências</h3>
+                    <p>Biblioteca leve e eficiente sem dependências externas, mantendo seu bundle otimizado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples Section -->
+    <section id="examples" class="examples">
+        <div class="container">
+            <div class="section-header">
+                <h2>Fácil de Usar</h2>
+                <p>Integre em minutos, monitore para sempre</p>
+            </div>
+            <div class="examples-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="basic">Uso Básico</button>
+                    <button class="tab-button" data-tab="advanced">Configuração Avançada</button>
+                    <button class="tab-button" data-tab="metrics">Métricas</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panel active" id="basic">
+                        <pre><code class="language-javascript">const express = require('express');
+const { requestInterceptor } = require('advanced-http-request-interceptor');
+
+const app = express();
+
+// Interceptar todas as requisições
+app.use(requestInterceptor({
+  enableLogging: true,
+  enablePerformanceMonitoring: true,
+  enableAuditLogging: true
+}));
+
+app.get('/api/users', (req, res) => {
+  res.json([{ id: 1, name: 'João' }]);
+});
+
+app.listen(3000);</code></pre>
+                    </div>
+                    <div class="tab-panel" id="advanced">
+                        <pre><code class="language-javascript">const fs = require('fs');
+const { requestInterceptor } = require('advanced-http-request-interceptor');
+
+// Logger personalizado
+const customLogger = (level, message, data) => {
+  const entry = `[${new Date().toISOString()}] [${level}] ${message}\n`;
+  fs.appendFileSync('api.log', entry + JSON.stringify(data, null, 2) + '\n');
+};
+
+app.use(requestInterceptor({
+  parseBody: true,
+  maxBodySize: 5 * 1024 * 1024, // 5MB
+  logLevel: 'debug',
+  customLogger,
+  onRequest: (req, requestInfo) => {
+    if (requestInfo.duration > 500) {
+      console.warn(`🐌 Slow request: ${requestInfo.url} took ${requestInfo.duration}ms`);
+    }
+  }
+}));</code></pre>
+                    </div>
+                    <div class="tab-panel" id="metrics">
+                        <pre><code class="language-javascript">const { MetricsCollector } = require('advanced-http-request-interceptor');
+
+// Endpoint para visualizar métricas
+app.get('/health/metrics', (req, res) => {
+  const metricsCollector = MetricsCollector.getInstance();
+  const metrics = metricsCollector.getMetrics();
+  
+  res.json({
+    summary: {
+      totalRoutes: Object.keys(metrics).length,
+      totalRequests: Object.values(metrics).reduce((sum, m) => sum + m.count, 0)
+    },
+    routeMetrics: Object.entries(metrics).map(([route, data]) => ({
+      route,
+      requestCount: data.count,
+      averageDuration: `${data.averageDuration.toFixed(2)}ms`,
+      minDuration: `${data.minDuration}ms`,
+      maxDuration: `${data.maxDuration}ms`
+    }))
+  });
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Veja em Ação</h2>
+                <p>Demonstração ao vivo dos recursos</p>
+            </div>
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <button class="btn btn-primary" onclick="simulateRequest('GET', '/api/users')">
+                        <i class="fas fa-arrow-down"></i>
+                        GET /api/users
+                    </button>
+                    <button class="btn btn-primary" onclick="simulateRequest('POST', '/api/users')">
+                        <i class="fas fa-arrow-up"></i>
+                        POST /api/users
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearLogs()">
+                        <i class="fas fa-trash"></i>
+                        Limpar
+                    </button>
+                </div>
+                <div class="demo-output">
+                    <div class="output-header">
+                        <h4>Log de Requisições</h4>
+                        <span class="status-indicator active">●</span>
+                    </div>
+                    <div class="log-container" id="demoLogs">
+                        <div class="log-placeholder">
+                            <i class="fas fa-play"></i>
+                            <p>Clique nos botões acima para simular requisições</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="install" class="installation">
+        <div class="container">
+            <div class="install-content">
+                <div class="install-text">
+                    <h2>Pronto para começar?</h2>
+                    <p>Instale a biblioteca e comece a monitorar suas APIs em menos de 5 minutos.</p>
+                    <div class="install-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Instalar</h4>
+                                <p>Via NPM ou Yarn</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Configurar</h4>
+                                <p>Adicionar middleware</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Monitorar</h4>
+                                <p>Acompanhar métricas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="install-commands">
+                    <div class="command-group">
+                        <h4>NPM</h4>
+                        <div class="command-box">
+                            <code>npm install advanced-http-request-interceptor</code>
+                            <button class="copy-btn" onclick="copyToClipboard('npm install advanced-http-request-interceptor')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="command-group">
+                        <h4>Yarn</h4>
+                        <div class="command-box">
+                            <code>yarn add advanced-http-request-interceptor</code>
+                            <button class="copy-btn" onclick="copyToClipboard('yarn add advanced-http-request-interceptor')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>HTTP Interceptor</span>
+                    </div>
+                    <p>Monitore suas APIs Express com inteligência e precisão.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Recursos</h4>
+                        <a href="#features">Funcionalidades</a>
+                        <a href="#examples">Exemplos</a>
+                        <a href="#demo">Demonstração</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Documentação</h4>
+                        <a href="https://github.com/duti/advanced-http-request-interceptor">GitHub</a>
+                        <a href="https://npmjs.com/package/advanced-http-request-interceptor">NPM</a>
+                        <a href="#install">Instalação</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Suporte</h4>
+                        <a href="https://github.com/duti/advanced-http-request-interceptor/issues">Issues</a>
+                        <a href="mailto:contato@example.com">Contato</a>
+                        <a href="#docs">Guias</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Advanced HTTP Request Interceptor. Licenciado sob MIT.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/duti/advanced-http-request-interceptor">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://npmjs.com/package/advanced-http-request-interceptor">
+                        <i class="fab fa-npm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

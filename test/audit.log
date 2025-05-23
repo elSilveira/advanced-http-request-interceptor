@@ -1,0 +1,318 @@
+[2025-05-23T06:11:13.171Z] [INFO] AUDIT: GET /api/fast from ::1
+{
+  "timestamp": "2025-05-23T06:11:13.167Z",
+  "method": "GET",
+  "url": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive"
+  },
+  "body": "",
+  "duration": 2
+}
+[2025-05-23T06:11:13.185Z] [INFO] AUDIT: GET /api/slow from ::1
+{
+  "timestamp": "2025-05-23T06:11:13.184Z",
+  "method": "GET",
+  "url": "/api/slow",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive"
+  },
+  "body": "",
+  "duration": 0
+}
+[2025-05-23T06:11:14.393Z] [INFO] AUDIT: POST /api/data from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.391Z",
+  "method": "POST",
+  "url": "/api/data",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive",
+    "transfer-encoding": "chunked"
+  },
+  "body": {
+    "usuario": "teste-automatico",
+    "dados": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "metadata": {
+      "timestamp": "2025-05-23T06:11:14.390Z",
+      "version": "1.0"
+    }
+  },
+  "duration": 1
+}
+[2025-05-23T06:11:14.400Z] [INFO] AUDIT: PUT /api/large-data from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.398Z",
+  "method": "PUT",
+  "url": "/api/large-data",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive",
+    "transfer-encoding": "chunked"
+  },
+  "body": {
+    "dados": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "array": [
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data",
+      "test-data"
+    ],
+    "nested": {
+      "level1": {
+        "level2": {
+          "data": "dados aninhados"
+        }
+      }
+    }
+  },
+  "duration": 1
+}
+[2025-05-23T06:11:14.409Z] [INFO] AUDIT: GET /api/fast from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.408Z",
+  "method": "GET",
+  "url": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive"
+  },
+  "body": "",
+  "duration": 1
+}
+[2025-05-23T06:11:14.514Z] [INFO] AUDIT: GET /api/fast from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.513Z",
+  "method": "GET",
+  "url": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive"
+  },
+  "body": "",
+  "duration": 0
+}
+[2025-05-23T06:11:14.622Z] [INFO] AUDIT: GET /api/fast from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.621Z",
+  "method": "GET",
+  "url": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive"
+  },
+  "body": "",
+  "duration": 1
+}
+[2025-05-23T06:11:14.731Z] [INFO] AUDIT: GET /api/fast from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.730Z",
+  "method": "GET",
+  "url": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive"
+  },
+  "body": "",
+  "duration": 0
+}
+[2025-05-23T06:11:14.840Z] [INFO] AUDIT: GET /api/fast from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.839Z",
+  "method": "GET",
+  "url": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive"
+  },
+  "body": "",
+  "duration": 0
+}
+[2025-05-23T06:11:14.951Z] [INFO] AUDIT: POST /api/data from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.948Z",
+  "method": "POST",
+  "url": "/api/data",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive",
+    "transfer-encoding": "chunked"
+  },
+  "body": "{\"invalid\": json}",
+  "duration": 0
+}
+[2025-05-23T06:11:14.956Z] [INFO] AUDIT: GET /metrics from ::1
+{
+  "timestamp": "2025-05-23T06:11:14.955Z",
+  "method": "GET",
+  "url": "/metrics",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "Advanced-Test-Client/1.0",
+    "host": "localhost:3000",
+    "connection": "keep-alive"
+  },
+  "body": "",
+  "duration": 0
+}
+[2025-05-23T06:12:27.253Z] [INFO] AUDIT: GET /metrics from ::1
+{
+  "timestamp": "2025-05-23T06:12:27.252Z",
+  "method": "GET",
+  "url": "/metrics",
+  "clientIp": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.4061",
+  "headers": {
+    "user-agent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.4061",
+    "host": "localhost:3000",
+    "connection": "Keep-Alive"
+  },
+  "body": "",
+  "duration": 0
+}

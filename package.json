@@ -1,0 +1,52 @@
+{
+  "name": "advanced-http-request-interceptor",
+  "version": "1.0.0",
+  "description": "Middleware Express completo para interceptar, monitorar e fazer log de requisições HTTP com métricas avançadas",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "node test/test-interceptor.js",
+    "test:advanced": "node test/advanced-test.js"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "http",
+    "request",
+    "interceptor",
+    "logging",
+    "monitoring",
+    "metrics",
+    "performance",
+    "audit",
+    "typescript"
+  ],
+  "author": "Eduardo Luiz da Silveira",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duti/advanced-http-request-interceptor.git"
+  },
+  "homepage": "https://github.com/duti/advanced-http-request-interceptor#readme",
+  "bugs": {
+    "url": "https://github.com/duti/advanced-http-request-interceptor/issues"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "examples/**/*"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^22.15.21",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

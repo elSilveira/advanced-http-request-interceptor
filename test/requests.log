@@ -1,0 +1,149 @@
+[2025-05-23T06:11:13.170Z] [INFO] HTTP Request: GET /api/fast
+{
+  "method": "GET",
+  "url": "/api/fast",
+  "path": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 2,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:11:13.167Z"
+}
+[2025-05-23T06:11:13.172Z] [DEBUG] Performance: /api/fast completed in 2ms
+[2025-05-23T06:11:13.184Z] [INFO] HTTP Request: GET /api/slow
+{
+  "method": "GET",
+  "url": "/api/slow",
+  "path": "/api/slow",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 0,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:11:13.184Z"
+}
+[2025-05-23T06:11:13.186Z] [DEBUG] Performance: /api/slow completed in 0ms
+[2025-05-23T06:11:14.392Z] [INFO] HTTP Request: POST /api/data
+{
+  "method": "POST",
+  "url": "/api/data",
+  "path": "/api/data",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 1,
+  "bodySize": 118,
+  "timestamp": "2025-05-23T06:11:14.391Z"
+}
+[2025-05-23T06:11:14.394Z] [DEBUG] Performance: /api/data completed in 1ms
+[2025-05-23T06:11:14.399Z] [INFO] HTTP Request: PUT /api/large-data
+{
+  "method": "PUT",
+  "url": "/api/large-data",
+  "path": "/api/large-data",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 1,
+  "bodySize": 1780,
+  "timestamp": "2025-05-23T06:11:14.398Z"
+}
+[2025-05-23T06:11:14.401Z] [DEBUG] Performance: /api/large-data completed in 1ms
+[2025-05-23T06:11:14.409Z] [INFO] HTTP Request: GET /api/fast
+{
+  "method": "GET",
+  "url": "/api/fast",
+  "path": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 1,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:11:14.408Z"
+}
+[2025-05-23T06:11:14.410Z] [DEBUG] Performance: /api/fast completed in 1ms
+[2025-05-23T06:11:14.513Z] [INFO] HTTP Request: GET /api/fast
+{
+  "method": "GET",
+  "url": "/api/fast",
+  "path": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 0,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:11:14.513Z"
+}
+[2025-05-23T06:11:14.515Z] [DEBUG] Performance: /api/fast completed in 0ms
+[2025-05-23T06:11:14.622Z] [INFO] HTTP Request: GET /api/fast
+{
+  "method": "GET",
+  "url": "/api/fast",
+  "path": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 1,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:11:14.621Z"
+}
+[2025-05-23T06:11:14.623Z] [DEBUG] Performance: /api/fast completed in 1ms
+[2025-05-23T06:11:14.730Z] [INFO] HTTP Request: GET /api/fast
+{
+  "method": "GET",
+  "url": "/api/fast",
+  "path": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 0,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:11:14.730Z"
+}
+[2025-05-23T06:11:14.732Z] [DEBUG] Performance: /api/fast completed in 0ms
+[2025-05-23T06:11:14.839Z] [INFO] HTTP Request: GET /api/fast
+{
+  "method": "GET",
+  "url": "/api/fast",
+  "path": "/api/fast",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 0,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:11:14.839Z"
+}
+[2025-05-23T06:11:14.841Z] [DEBUG] Performance: /api/fast completed in 0ms
+[2025-05-23T06:11:14.949Z] [WARN] Failed to parse JSON body for /api/data
+{
+  "error": {},
+  "bodyPreview": "{\"invalid\": json}"
+}
+[2025-05-23T06:11:14.950Z] [INFO] HTTP Request: POST /api/data
+{
+  "method": "POST",
+  "url": "/api/data",
+  "path": "/api/data",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 0,
+  "bodySize": 17,
+  "timestamp": "2025-05-23T06:11:14.948Z"
+}
+[2025-05-23T06:11:14.952Z] [DEBUG] Performance: /api/data completed in 0ms
+[2025-05-23T06:11:14.955Z] [INFO] HTTP Request: GET /metrics
+{
+  "method": "GET",
+  "url": "/metrics",
+  "path": "/metrics",
+  "clientIp": "::1",
+  "userAgent": "Advanced-Test-Client/1.0",
+  "duration": 0,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:11:14.955Z"
+}
+[2025-05-23T06:11:14.956Z] [DEBUG] Performance: /metrics completed in 0ms
+[2025-05-23T06:12:27.252Z] [INFO] HTTP Request: GET /metrics
+{
+  "method": "GET",
+  "url": "/metrics",
+  "path": "/metrics",
+  "clientIp": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.4061",
+  "duration": 0,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T06:12:27.252Z"
+}
+[2025-05-23T06:12:27.254Z] [DEBUG] Performance: /metrics completed in 0ms
