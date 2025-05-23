@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced HTTP Request Interceptor - Monitore suas APIs com facilidade</title>
     <meta name="description" content="Biblioteca completa para interceptar, monitorar e fazer log de requisições HTTP em aplicações Express com métricas avançadas e auditoria de segurança.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">    <link rel="stylesheet" href="styles-fix.css">    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -356,33 +355,7 @@ app.get('/health/metrics', (req, res) => {
                 <p>Guias detalhados para maximizar o potencial da biblioteca</p>
             </div>
             
-            <div class="docs-navigation">
-                <div class="docs-nav">
-                    <button class="docs-nav-item active" data-doc="quickstart">
-                        <i class="fas fa-rocket"></i>
-                        <span>Início Rápido</span>
-                    </button>
-                    <button class="docs-nav-item" data-doc="configuration">
-                        <i class="fas fa-cog"></i>
-                        <span>Configuração</span>
-                    </button>
-                    <button class="docs-nav-item" data-doc="metrics">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Métricas</span>
-                    </button>
-                    <button class="docs-nav-item" data-doc="security">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Segurança</span>
-                    </button>
-                    <button class="docs-nav-item" data-doc="typescript">
-                        <i class="fas fa-code"></i>
-                        <span>TypeScript</span>
-                    </button>
-                    <button class="docs-nav-item" data-doc="advanced">
-                        <i class="fas fa-tools"></i>
-                        <span>Casos Avançados</span>
-                    </button>
-                </div>
+                        <div class="docs-navigation">                <div class="docs-nav">                    <div class="docs-nav-header">                        <h4>📚 Documentação</h4>                        <p>Navegue pelas seções abaixo</p>                    </div>                    <button class="docs-nav-item active" data-doc="quickstart" title="Começar rapidamente com a biblioteca">                        <i class="fas fa-rocket"></i>                        <span>Início Rápido</span>                    </button>                    <button class="docs-nav-item" data-doc="configuration" title="Todas as opções de configuração">                        <i class="fas fa-cog"></i>                        <span>Configuração</span>                    </button>                    <button class="docs-nav-item" data-doc="metrics" title="Sistema de métricas e monitoramento">                        <i class="fas fa-chart-bar"></i>                        <span>Métricas</span>                    </button>                    <button class="docs-nav-item" data-doc="security" title="Auditoria e segurança">                        <i class="fas fa-shield-alt"></i>                        <span>Segurança</span>                    </button>                    <button class="docs-nav-item" data-doc="typescript" title="Suporte completo ao TypeScript">                        <i class="fas fa-code"></i>                        <span>TypeScript</span>                    </button>                    <button class="docs-nav-item" data-doc="advanced" title="Casos de uso avançados e integração">                        <i class="fas fa-tools"></i>                        <span>Casos Avançados</span>                    </button>                </div>
                 
                 <div class="docs-content">
                     <!-- Quick Start Guide -->

@@ -18,15 +18,23 @@ function initTabs() {
     });
 }
 
-// Sistema de navegação para documentação
+// Sistema de navegação para documentação - MELHORADO
 function initDocsNavigation() {
     const docsNavItems = document.querySelectorAll('.docs-nav-item');
     const docsPanels = document.querySelectorAll('.docs-panel');
+    const docsContent = document.querySelector('.docs-content');
     
     console.log('Inicializando documentação:', docsNavItems.length, 'items de navegação', docsPanels.length, 'painéis');
     
+    // Verifica se os elementos existem
+    if (docsNavItems.length === 0 || docsPanels.length === 0) {
+        console.warn('Elementos de documentação não encontrados');
+        return;
+    }
+    
     docsNavItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
             const targetDoc = this.getAttribute('data-doc');
             console.log('Clicado em:', targetDoc);
             
@@ -37,19 +45,53 @@ function initDocsNavigation() {
             // Add active class to clicked nav item and corresponding panel
             this.classList.add('active');
             const targetPanel = document.getElementById(targetDoc);
+            
             if (targetPanel) {
                 targetPanel.classList.add('active');
                 console.log('Ativado painel:', targetDoc);
+                
+                // Scroll suave para o topo do conteúdo em dispositivos móveis
+                if (docsContent && window.innerWidth <= 968) {
+                    docsContent.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+                
+                // Re-inicializa botões de cópia no novo painel
+                setTimeout(() => {
+                    initCopyButtonsInElement(targetPanel);
+                }, 100);
+                
             } else {
                 console.error('Painel não encontrado:', targetDoc);
             }
         });
     });
+    
+    // Adiciona suporte para teclado (acessibilidade)
+    docsNavItems.forEach(item => {
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+        
+        // Torna os botões focáveis
+        if (!item.hasAttribute('tabindex')) {
+            item.setAttribute('tabindex', '0');
+        }
+    });
 }
 
-// Funcionalidade de botões de cópia para blocos de código
+// Funcionalidade de botões de cópia para blocos de código - MELHORADA
 function initCopyButtons() {
-    document.querySelectorAll('pre code').forEach(codeBlock => {
+    initCopyButtonsInElement(document);
+}
+
+function initCopyButtonsInElement(element) {
+    element.querySelectorAll('pre code').forEach(codeBlock => {
         const pre = codeBlock.parentElement;
         
         // Evita duplicar botões de cópia
@@ -59,6 +101,7 @@ function initCopyButtons() {
         copyButton.className = 'copy-code-btn';
         copyButton.innerHTML = '<i class="fas fa-copy"></i>';
         copyButton.title = 'Copiar código';
+        copyButton.setAttribute('aria-label', 'Copiar código para área de transferência');
         
         copyButton.addEventListener('click', function() {
             const code = codeBlock.textContent;
@@ -67,10 +110,12 @@ function initCopyButtons() {
             // Visual feedback
             this.innerHTML = '<i class="fas fa-check"></i>';
             this.style.color = '#38a169';
+            this.setAttribute('aria-label', 'Código copiado!');
             
             setTimeout(() => {
                 this.innerHTML = '<i class="fas fa-copy"></i>';
                 this.style.color = '';
+                this.setAttribute('aria-label', 'Copiar código para área de transferência');
             }, 2000);
         });
         
