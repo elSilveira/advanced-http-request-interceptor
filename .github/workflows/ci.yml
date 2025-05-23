@@ -1,0 +1,83 @@
+name: CI - Build and Test
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Instalar dependências
+      run: npm ci
+      
+    - name: Verificar tipos TypeScript
+      run: npx tsc --noEmit
+      
+    - name: Build da biblioteca
+      run: npm run build
+      
+    - name: Executar testes
+      run: npm test
+      
+    - name: Verificar se arquivos dist foram gerados
+      run: |
+        ls -la dist/
+        test -f dist/index.js
+        test -f dist/index.d.ts
+        test -f dist/requestInterceptor.js
+        test -f dist/requestInterceptor.d.ts
+        
+    - name: Testar importação CommonJS
+      run: node -e "const { requestInterceptor } = require('./dist/index.js'); console.log('✅ CommonJS import funcionou!');"
+      
+    - name: Upload artifacts (apenas Node 18)
+      if: matrix.node-version == '18.x'
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts
+        path: dist/
+        
+  publish-check:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+        cache: 'npm'
+        registry-url: 'https://registry.npmjs.org'
+        
+    - name: Instalar dependências
+      run: npm ci
+      
+    - name: Build
+      run: npm run build
+      
+    - name: Testar npm pack
+      run: |
+        npm pack
+        ls -la *.tgz
+        echo "✅ Package criado com sucesso!" 
