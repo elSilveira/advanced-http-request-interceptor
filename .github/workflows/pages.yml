@@ -1,10 +1,15 @@
-# Workflow para deploy do GitHub Pages
+# Workflow otimizado para deploy do GitHub Pages
 name: Deploy GitHub Pages
 
 on:
   # Executa no push para a branch main
   push:
     branches: [ "main", "master" ]
+    paths:
+      - 'landing/**'
+      - 'index.html'
+      - '_config.yml'
+      - '.github/workflows/pages.yml'
   
   # Permite execução manual do workflow
   workflow_dispatch:
@@ -27,15 +32,77 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies (if needed)
+        run: |
+          if [ -f package.json ]; then
+            npm ci --only=production
+          fi
+
+      - name: Verify landing page structure
+        run: |
+          echo "Verificando estrutura da landing page..."
+          ls -la landing/
+          if [ ! -f "landing/index.html" ]; then
+            echo "❌ Erro: landing/index.html não encontrado!"
+            exit 1
+          fi
+          if [ ! -f "landing/styles.css" ]; then
+            echo "❌ Erro: landing/styles.css não encontrado!"
+            exit 1
+          fi
+          if [ ! -f "landing/script.js" ]; then
+            echo "❌ Erro: landing/script.js não encontrado!"
+            exit 1
+          fi
+          echo "✅ Estrutura da landing page verificada com sucesso!"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Create optimized build directory
+        run: |
+          mkdir -p _site
+          # Copia arquivos essenciais para a raiz
+          cp index.html _site/
+          cp _config.yml _site/
+          cp .nojekyll _site/
+          if [ -f CNAME ]; then cp CNAME _site/; fi
+          # Copia toda a pasta landing
+          cp -r landing/ _site/landing/
+          echo "✅ Build directory criado com sucesso!"
+
+      - name: Optimize static files
+        run: |
+          cd _site
+          # Remove arquivos desnecessários
+          find . -name "*.md" -not -path "./landing/README.md" -delete
+          find . -name "server.js" -delete
+          find . -name "node_modules" -type d -exec rm -rf {} + 2>/dev/null || true
+          # Lista arquivos finais
+          echo "📁 Arquivos no build final:"
+          find . -type f | sort
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload do diretório inteiro do repositório
-          path: '.'
+          path: '_site'
 
   # Job de deploy
   deploy:
@@ -47,4 +114,10 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
+
+      - name: Summary
+        run: |
+          echo "🚀 Deploy concluído com sucesso!"
+          echo "📍 URL: ${{ steps.deployment.outputs.page_url }}"
+          echo "📅 Deploy realizado em: $(date)" 
