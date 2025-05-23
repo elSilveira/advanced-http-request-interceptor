@@ -1,40 +1,3 @@
-// Navegação mobile
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-    }
-    
-    // Smooth scrolling para links de navegação
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-    
-    // Header transparente no scroll
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(15, 15, 35, 0.98)';
-        } else {
-            header.style.background = 'rgba(15, 15, 35, 0.95)';
-        }
-    });
-});
-
 // Sistema de tabs para exemplos de código
 function initTabs() {
     const tabButtons = document.querySelectorAll('.tab-button');
@@ -52,6 +15,68 @@ function initTabs() {
             button.classList.add('active');
             document.getElementById(targetTab).classList.add('active');
         });
+    });
+}
+
+// Sistema de navegação para documentação
+function initDocsNavigation() {
+    const docsNavItems = document.querySelectorAll('.docs-nav-item');
+    const docsPanels = document.querySelectorAll('.docs-panel');
+    
+    console.log('Inicializando documentação:', docsNavItems.length, 'items de navegação', docsPanels.length, 'painéis');
+    
+    docsNavItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const targetDoc = this.getAttribute('data-doc');
+            console.log('Clicado em:', targetDoc);
+            
+            // Remove active class from all nav items and panels
+            docsNavItems.forEach(nav => nav.classList.remove('active'));
+            docsPanels.forEach(panel => panel.classList.remove('active'));
+            
+            // Add active class to clicked nav item and corresponding panel
+            this.classList.add('active');
+            const targetPanel = document.getElementById(targetDoc);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+                console.log('Ativado painel:', targetDoc);
+            } else {
+                console.error('Painel não encontrado:', targetDoc);
+            }
+        });
+    });
+}
+
+// Funcionalidade de botões de cópia para blocos de código
+function initCopyButtons() {
+    document.querySelectorAll('pre code').forEach(codeBlock => {
+        const pre = codeBlock.parentElement;
+        
+        // Evita duplicar botões de cópia
+        if (pre.querySelector('.copy-code-btn')) return;
+        
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-code-btn';
+        copyButton.innerHTML = '<i class="fas fa-copy"></i>';
+        copyButton.title = 'Copiar código';
+        
+        copyButton.addEventListener('click', function() {
+            const code = codeBlock.textContent;
+            copyToClipboard(code);
+            
+            // Visual feedback
+            this.innerHTML = '<i class="fas fa-check"></i>';
+            this.style.color = '#38a169';
+            
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-copy"></i>';
+                this.style.color = '';
+            }, 2000);
+        });
+        
+        // Position the button
+        pre.style.position = 'relative';
+        pre.appendChild(copyButton);
     });
 }
 
@@ -331,78 +356,32 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = animationCSS;
 document.head.appendChild(styleSheet);
 
-// Inicializa tudo quando o DOM estiver carregado
+// **INICIALIZADOR PRINCIPAL - CONSOLIDADO**
 document.addEventListener('DOMContentLoaded', function() {
-    initTabs();
-    initScrollAnimations();
+    console.log('DOM carregado, inicializando funcionalidades...');
     
-    // Pequeno delay para garantir que os elementos estejam renderizados
-    setTimeout(() => {
-        initTerminalTyping();
-        animateCounters();
-    }, 1000);
-});
-
-// Adiciona efeito parallax suave no hero
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroAnimation = document.querySelector('.hero-animation');
-    if (heroAnimation) {
-        heroAnimation.style.transform = `translateY(${scrolled * 0.2}px)`;
+    // **NAVEGAÇÃO MOBILE**
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
     }
-});
-
-// Documentation navigation
-document.addEventListener('DOMContentLoaded', function() {
-    // Documentation tabs functionality
-    const docsNavItems = document.querySelectorAll('.docs-nav-item');
-    const docsPanels = document.querySelectorAll('.docs-panel');
     
-    docsNavItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const targetDoc = this.getAttribute('data-doc');
-            
-            // Remove active class from all nav items and panels
-            docsNavItems.forEach(nav => nav.classList.remove('active'));
-            docsPanels.forEach(panel => panel.classList.remove('active'));
-            
-            // Add active class to clicked nav item and corresponding panel
-            this.classList.add('active');
-            const targetPanel = document.getElementById(targetDoc);
-            if (targetPanel) {
-                targetPanel.classList.add('active');
-            }
-        });
+    // **HEADER TRANSPARENTE NO SCROLL**
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(15, 15, 35, 0.98)';
+        } else {
+            header.style.background = 'rgba(15, 15, 35, 0.95)';
+        }
     });
     
-    // Copy button functionality for code blocks
-    document.querySelectorAll('pre code').forEach(codeBlock => {
-        const pre = codeBlock.parentElement;
-        const copyButton = document.createElement('button');
-        copyButton.className = 'copy-code-btn';
-        copyButton.innerHTML = '<i class="fas fa-copy"></i>';
-        copyButton.title = 'Copiar código';
-        
-        copyButton.addEventListener('click', function() {
-            const code = codeBlock.textContent;
-            copyToClipboard(code);
-            
-            // Visual feedback
-            this.innerHTML = '<i class="fas fa-check"></i>';
-            this.style.color = '#38a169';
-            
-            setTimeout(() => {
-                this.innerHTML = '<i class="fas fa-copy"></i>';
-                this.style.color = '';
-            }, 2000);
-        });
-        
-        // Position the button
-        pre.style.position = 'relative';
-        pre.appendChild(copyButton);
-    });
-    
-    // Smooth scroll for anchor links
+    // **SMOOTH SCROLLING PARA LINKS DE NAVEGAÇÃO**
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -415,4 +394,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // **INICIALIZA TODAS AS FUNCIONALIDADES**
+    initTabs();
+    initScrollAnimations();
+    initDocsNavigation();
+    initCopyButtons();
+    
+    // **PEQUENO DELAY PARA GARANTIR QUE OS ELEMENTOS ESTEJAM RENDERIZADOS**
+    setTimeout(() => {
+        initTerminalTyping();
+        animateCounters();
+    }, 1000);
+    
+    console.log('Todas as funcionalidades inicializadas!');
+});
+
+// **EFEITO PARALLAX SUAVE NO HERO**
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const heroAnimation = document.querySelector('.hero-animation');
+    if (heroAnimation) {
+        heroAnimation.style.transform = `translateY(${scrolled * 0.2}px)`;
+    }
 }); 

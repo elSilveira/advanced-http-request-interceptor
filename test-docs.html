@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Documentação</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .docs-nav { margin-bottom: 20px; }
+        .docs-nav-item { 
+            padding: 10px 20px; 
+            margin: 5px; 
+            background: #f0f0f0; 
+            border: none; 
+            cursor: pointer; 
+        }
+        .docs-nav-item.active { background: #007bff; color: white; }
+        .docs-panel { 
+            display: none; 
+            padding: 20px; 
+            border: 1px solid #ddd; 
+            margin-top: 10px; 
+        }
+        .docs-panel.active { display: block; }
+        .status { 
+            padding: 10px; 
+            background: #e7f3ff; 
+            border-left: 4px solid #007bff; 
+            margin-bottom: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de Navegação da Documentação</h1>
+    
+    <div class="status" id="status">
+        Status: Carregando...
+    </div>
+    
+    <div class="docs-nav">
+        <button class="docs-nav-item active" data-doc="quickstart">Início Rápido</button>
+        <button class="docs-nav-item" data-doc="configuration">Configuração</button>
+        <button class="docs-nav-item" data-doc="metrics">Métricas</button>
+        <button class="docs-nav-item" data-doc="security">Segurança</button>
+        <button class="docs-nav-item" data-doc="typescript">TypeScript</button>
+        <button class="docs-nav-item" data-doc="advanced">Casos Avançados</button>
+    </div>
+    
+    <div class="docs-panel active" id="quickstart">
+        <h2>Início Rápido</h2>
+        <p>Esta é a seção de início rápido.</p>
+        <pre><code>npm install advanced-http-request-interceptor</code></pre>
+    </div>
+    
+    <div class="docs-panel" id="configuration">
+        <h2>Configuração</h2>
+        <p>Esta é a seção de configuração.</p>
+        <pre><code>const options = { enableLogging: true };</code></pre>
+    </div>
+    
+    <div class="docs-panel" id="metrics">
+        <h2>Métricas</h2>
+        <p>Esta é a seção de métricas.</p>
+        <pre><code>const metrics = MetricsCollector.getInstance().getMetrics();</code></pre>
+    </div>
+    
+    <div class="docs-panel" id="security">
+        <h2>Segurança</h2>
+        <p>Esta é a seção de segurança.</p>
+        <pre><code>enableAuditLogging: true</code></pre>
+    </div>
+    
+    <div class="docs-panel" id="typescript">
+        <h2>TypeScript</h2>
+        <p>Esta é a seção de TypeScript.</p>
+        <pre><code>import { requestInterceptor } from 'advanced-http-request-interceptor';</code></pre>
+    </div>
+    
+    <div class="docs-panel" id="advanced">
+        <h2>Casos Avançados</h2>
+        <p>Esta é a seção de casos avançados.</p>
+        <pre><code>// Integração com APM</code></pre>
+    </div>
+
+    <script>
+        // Sistema de navegação para documentação
+        function initDocsNavigation() {
+            const docsNavItems = document.querySelectorAll('.docs-nav-item');
+            const docsPanels = document.querySelectorAll('.docs-panel');
+            const status = document.getElementById('status');
+            
+            status.innerHTML = `Status: Encontrados ${docsNavItems.length} botões e ${docsPanels.length} painéis`;
+            
+            docsNavItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const targetDoc = this.getAttribute('data-doc');
+                    console.log('Clicado em:', targetDoc);
+                    
+                    // Remove active class from all nav items and panels
+                    docsNavItems.forEach(nav => nav.classList.remove('active'));
+                    docsPanels.forEach(panel => panel.classList.remove('active'));
+                    
+                    // Add active class to clicked nav item and corresponding panel
+                    this.classList.add('active');
+                    const targetPanel = document.getElementById(targetDoc);
+                    if (targetPanel) {
+                        targetPanel.classList.add('active');
+                        status.innerHTML = `Status: Ativado painel "${targetDoc}" com sucesso! ✅`;
+                        console.log('Ativado painel:', targetDoc);
+                    } else {
+                        status.innerHTML = `Status: ❌ Erro - Painel "${targetDoc}" não encontrado!`;
+                        console.error('Painel não encontrado:', targetDoc);
+                    }
+                });
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM carregado, inicializando teste...');
+            initDocsNavigation();
+            document.getElementById('status').innerHTML = 'Status: Sistema de navegação inicializado! ✅';
+        });
+    </script>
+</body>
+</html> 
