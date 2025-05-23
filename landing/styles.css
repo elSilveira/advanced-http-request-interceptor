@@ -1147,4 +1147,488 @@ body {
 
 .testimonial-cta {
     padding: 1.5rem;
+}
+
+/* Documentation Section */
+.documentation {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.docs-navigation {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 800px;
+}
+
+.docs-nav {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 0;
+}
+
+.docs-nav-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px 40px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    text-align: left;
+}
+
+.docs-nav-item:hover,
+.docs-nav-item.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.docs-nav-item i {
+    margin-right: 12px;
+    font-size: 18px;
+    width: 24px;
+}
+
+.docs-content {
+    overflow-y: auto;
+    max-height: 800px;
+}
+
+.docs-panel {
+    display: none;
+    padding: 40px 50px;
+    animation: fadeIn 0.3s ease;
+}
+
+.docs-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.docs-header {
+    margin-bottom: 40px;
+}
+
+.docs-header h3 {
+    font-size: 32px;
+    color: #1a202c;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.docs-header p {
+    font-size: 18px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Step Guide */
+.step-guide {
+    margin-bottom: 40px;
+}
+
+.step {
+    display: flex;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: #f8fafc;
+    border-radius: 15px;
+    border-left: 5px solid #667eea;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 25px;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    font-size: 20px;
+    color: #1a202c;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.step-content pre {
+    margin: 0;
+    background: #1a202c;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.step-content code {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Docs Tip */
+.docs-tip {
+    display: flex;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid #3b82f6;
+    margin-top: 30px;
+}
+
+.docs-tip i {
+    color: #3b82f6;
+    font-size: 20px;
+    margin-right: 15px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.docs-tip p {
+    margin: 0;
+    color: #1e40af;
+    font-size: 16px;
+}
+
+/* Configuration Section */
+.config-section {
+    margin-bottom: 40px;
+}
+
+.config-section h4 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.config-options h4 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.option-table {
+    background: #f8fafc;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.option-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px 2fr;
+    gap: 20px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    align-items: center;
+}
+
+.option-row:last-child {
+    border-bottom: none;
+}
+
+.option-row:nth-child(even) {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.option-name {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.option-type {
+    font-family: 'Fira Code', monospace;
+    color: #e53e3e;
+    font-size: 14px;
+}
+
+.option-default {
+    font-family: 'Fira Code', monospace;
+    color: #38a169;
+    font-size: 14px;
+}
+
+.option-desc {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Metrics Guide */
+.metrics-guide h4 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    font-weight: 600;
+}
+
+.metrics-features {
+    margin-top: 40px;
+}
+
+.metrics-features h4 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.metrics-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.metrics-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 16px;
+    color: #4a5568;
+}
+
+.metrics-features li:last-child {
+    border-bottom: none;
+}
+
+.metrics-features strong {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Security Guide */
+.security-guide h4 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.security-features {
+    margin-top: 40px;
+}
+
+.security-features h4 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.security-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.security-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 16px;
+    color: #4a5568;
+}
+
+.security-features li:last-child {
+    border-bottom: none;
+}
+
+.security-features strong {
+    color: #e53e3e;
+    font-weight: 600;
+}
+
+/* TypeScript Guide */
+.typescript-guide h4 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    font-weight: 600;
+}
+
+/* Advanced Cases */
+.advanced-cases {
+    margin-top: 30px;
+}
+
+.case-section {
+    margin-bottom: 50px;
+    padding: 30px;
+    background: #f8fafc;
+    border-radius: 15px;
+    border-left: 5px solid #38a169;
+}
+
+.case-section h4 {
+    font-size: 20px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.case-section pre {
+    margin: 0;
+    background: #1a202c;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+/* Copy Code Button */
+.copy-code-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.copy-code-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.copy-code-btn:active {
+    transform: translateY(0);
+}
+
+/* Docs Footer */
+.docs-footer {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.docs-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 2px solid #667eea;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .docs-navigation {
+        grid-template-columns: 250px 1fr;
+    }
+    
+    .docs-panel {
+        padding: 30px 40px;
+    }
+}
+
+@media (max-width: 968px) {
+    .docs-navigation {
+        grid-template-columns: 1fr;
+        max-height: none;
+    }
+    
+    .docs-nav {
+        padding: 20px 0;
+        order: 2;
+    }
+    
+    .docs-nav-item {
+        padding: 12px 30px;
+    }
+    
+    .docs-content {
+        order: 1;
+        max-height: none;
+    }
+    
+    .docs-panel {
+        padding: 30px 25px;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-number {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .option-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .docs-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .documentation {
+        padding: 60px 0;
+    }
+    
+    .docs-panel {
+        padding: 20px 15px;
+    }
+    
+    .docs-header h3 {
+        font-size: 24px;
+    }
+    
+    .step-content pre {
+        font-size: 12px;
+        padding: 15px;
+    }
 } 

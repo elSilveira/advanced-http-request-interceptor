@@ -248,50 +248,34 @@ app.get('/health/metrics', (req, res) => {
         </div>
     </section>
 
-    <!-- Testimonial Section - IAZI Case Study -->
+    <!-- Testimonial/Case Study Section -->
     <section id="testimonial" class="testimonial">
         <div class="container">
+            <div class="section-header">
+                <h2>Case Study: ServiConnect</h2>
+                <p>Como implementamos observabilidade total em uma aplicação real</p>
+            </div>
             <div class="testimonial-content">
-                <div class="testimonial-header">
-                    <div class="testimonial-badge">
-                        <i class="fas fa-star"></i>
-                        <span>Case Study</span>
-                    </div>
-                    <h2>Resultados Reais de Produção</h2>
-                    <p>Como o IAZI transformou seu monitoramento de APIs</p>
+                <div class="testimonial-problem">
+                    <h3>O Problema</h3>
+                    <p>A aplicação ServiConnect estava operando como uma "caixa preta" - sem visibilidade das requisições HTTP, dificultando debugging e monitoramento de performance.</p>
                 </div>
                 
-                <div class="testimonial-main">
-                    <div class="testimonial-quote">
-                        <div class="quote-icon">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <blockquote>
-                            "A implementação da biblioteca <strong>Advanced Request Interceptor</strong> foi um divisor de águas para nossa operação. 
-                            Passamos de uma aplicação 'caixa preta' para <strong>100% de visibilidade</strong> em nossas requisições HTTP. 
-                            O tempo de debugging foi reduzido de 2-4 horas para apenas 5-10 minutos - uma melhoria de <strong>95%</strong>!"
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Equipe de Desenvolvimento IAZI</h4>
-                                <p>ServiConnect Platform</p>
-                            </div>
-                            <div class="company-logo">
-                                <div class="logo-placeholder">
-                                    <span>IAZI</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
+                <div class="testimonial-solution">
+                    <h3>A Solução</h3>
+                    <p>Implementação do Advanced HTTP Request Interceptor em apenas 2 horas, transformando completamente a observabilidade da aplicação.</p>
+                </div>
+                
+                <div class="testimonial-results">
+                    <h3>Resultados Obtidos</h3>
                     <div class="results-grid">
-                        <div class="result-card highlight">
+                        <div class="result-card">
                             <div class="result-icon">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fas fa-clock"></i>
                             </div>
                             <div class="result-content">
-                                <div class="result-number">95%</div>
-                                <div class="result-label">Redução no tempo de debug</div>
+                                <div class="result-number">-95%</div>
+                                <div class="result-label">Tempo de Debug</div>
                                 <div class="result-detail">De 2-4 horas para 5-10 minutos</div>
                             </div>
                         </div>
@@ -303,7 +287,7 @@ app.get('/health/metrics', (req, res) => {
                             <div class="result-content">
                                 <div class="result-number">100%</div>
                                 <div class="result-label">Visibilidade HTTP</div>
-                                <div class="result-detail">De 0% para cobertura total</div>
+                                <div class="result-detail">De zero para total observabilidade</div>
                             </div>
                         </div>
                         
@@ -358,6 +342,434 @@ app.get('/health/metrics', (req, res) => {
                     <a href="#install" class="btn btn-primary">
                         <i class="fas fa-rocket"></i>
                         Começar Agora - É Grátis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="documentation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Documentação Completa</h2>
+                <p>Guias detalhados para maximizar o potencial da biblioteca</p>
+            </div>
+            
+            <div class="docs-navigation">
+                <div class="docs-nav">
+                    <button class="docs-nav-item active" data-doc="quickstart">
+                        <i class="fas fa-rocket"></i>
+                        <span>Início Rápido</span>
+                    </button>
+                    <button class="docs-nav-item" data-doc="configuration">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuração</span>
+                    </button>
+                    <button class="docs-nav-item" data-doc="metrics">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Métricas</span>
+                    </button>
+                    <button class="docs-nav-item" data-doc="security">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Segurança</span>
+                    </button>
+                    <button class="docs-nav-item" data-doc="typescript">
+                        <i class="fas fa-code"></i>
+                        <span>TypeScript</span>
+                    </button>
+                    <button class="docs-nav-item" data-doc="advanced">
+                        <i class="fas fa-tools"></i>
+                        <span>Casos Avançados</span>
+                    </button>
+                </div>
+                
+                <div class="docs-content">
+                    <!-- Quick Start Guide -->
+                    <div class="docs-panel active" id="quickstart">
+                        <div class="docs-header">
+                            <h3>Início Rápido (30 segundos)</h3>
+                            <p>Comece a monitorar suas APIs em menos de um minuto</p>
+                        </div>
+                        
+                        <div class="step-guide">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Instalação</h4>
+                                    <pre><code class="language-bash">npm install advanced-http-request-interceptor</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Configuração Básica</h4>
+                                    <pre><code class="language-javascript">const express = require('express');
+const { requestInterceptor } = require('advanced-http-request-interceptor');
+
+const app = express();
+
+// ✨ Uma linha para observabilidade completa
+app.use(requestInterceptor({
+  enableLogging: true,
+  enablePerformanceMonitoring: true,
+  enableAuditLogging: true
+}));
+
+// Suas rotas normais
+app.get('/api/users', (req, res) => {
+  res.json({ users: [] });
+});
+
+app.listen(3000, () => {
+  console.log('🚀 Servidor com monitoramento avançado rodando!');
+});</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Resultado Imediato</h4>
+                                    <pre><code class="language-bash">[2025-05-23T10:30:45.123Z] [INFO] HTTP Request: GET /api/users
+{
+  "method": "GET",
+  "url": "/api/users",
+  "clientIp": "192.168.1.100",
+  "userAgent": "Mozilla/5.0...",
+  "duration": 15,
+  "bodySize": 0,
+  "timestamp": "2025-05-23T10:30:45.108Z"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="docs-tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <p><strong>Dica:</strong> Pronto! Sua aplicação já está monitorando todas as requisições HTTP automaticamente.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Configuration Guide -->
+                    <div class="docs-panel" id="configuration">
+                        <div class="docs-header">
+                            <h3>Configuração Completa</h3>
+                            <p>Todas as opções disponíveis para personalizar o comportamento</p>
+                        </div>
+                        
+                        <div class="config-section">
+                            <h4>Opções Principais</h4>
+                            <pre><code class="language-javascript">app.use(requestInterceptor({
+  // 🔍 Análise do corpo da requisição
+  parseBody: true,                    // Analisa o body automaticamente
+  maxBodySize: 2 * 1024 * 1024,       // Limite: 2MB (padrão: 1MB)
+  
+  // 📝 Sistema de Logging
+  enableLogging: true,                 // Ativa logging detalhado
+  logLevel: 'info',                   // Níveis: 'debug', 'info', 'warn', 'error'
+  
+  // 📊 Monitoramento de Performance
+  enablePerformanceMonitoring: true,  // Métricas por rota
+  
+  // 🛡️ Auditoria de Segurança
+  enableAuditLogging: true,           // Logs para compliance
+  
+  // 🔧 Processamento Personalizado
+  onRequest: (req, requestInfo) => {
+    // Seu código personalizado aqui
+    console.log(`📥 ${requestInfo.method} ${requestInfo.url}`);
+    
+    // Integração com sistema de alertas
+    if (requestInfo.duration > 1000) {
+      alertSystem.notify('Requisição lenta detectada', requestInfo);
+    }
+  },
+  
+  // 🎛️ Logger Personalizado
+  customLogger: (level, message, data) => {
+    // Integração com Winston, Bunyan, etc.
+    winston[level](message, data);
+  }
+}));</code></pre>
+                        </div>
+                        
+                        <div class="config-options">
+                            <h4>Referência de Opções</h4>
+                            <div class="option-table">
+                                <div class="option-row">
+                                    <div class="option-name">parseBody</div>
+                                    <div class="option-type">boolean</div>
+                                    <div class="option-default">true</div>
+                                    <div class="option-desc">Analisa o corpo das requisições</div>
+                                </div>
+                                <div class="option-row">
+                                    <div class="option-name">maxBodySize</div>
+                                    <div class="option-type">number</div>
+                                    <div class="option-default">1MB</div>
+                                    <div class="option-desc">Tamanho máximo do payload</div>
+                                </div>
+                                <div class="option-row">
+                                    <div class="option-name">enableLogging</div>
+                                    <div class="option-type">boolean</div>
+                                    <div class="option-default">true</div>
+                                    <div class="option-desc">Ativa sistema de logging</div>
+                                </div>
+                                <div class="option-row">
+                                    <div class="option-name">logLevel</div>
+                                    <div class="option-type">string</div>
+                                    <div class="option-default">'info'</div>
+                                    <div class="option-desc">Nível mínimo de logging</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Metrics Guide -->
+                    <div class="docs-panel" id="metrics">
+                        <div class="docs-header">
+                            <h3>Sistema de Métricas</h3>
+                            <p>Colete e analise estatísticas de performance em tempo real</p>
+                        </div>
+                        
+                        <div class="metrics-guide">
+                            <h4>Endpoint de Métricas</h4>
+                            <pre><code class="language-javascript">const { requestInterceptor, MetricsCollector } = require('advanced-http-request-interceptor');
+
+app.use(requestInterceptor({ enablePerformanceMonitoring: true }));
+
+// 📈 Endpoint automático de métricas
+app.get('/metrics', (req, res) => {
+  const metrics = MetricsCollector.getInstance().getMetrics();
+  res.json(metrics);
+});</code></pre>
+                            
+                            <h4>Exemplo de Resposta</h4>
+                            <pre><code class="language-json">{
+  "/api/users": {
+    "count": 1247,
+    "totalDuration": 18705,
+    "averageDuration": 15.0,
+    "minDuration": 8,
+    "maxDuration": 89,
+    "lastRequest": "2025-05-23T10:45:30.123Z"
+  },
+  "/api/products": {
+    "count": 856,
+    "averageDuration": 23.4,
+    "minDuration": 12,
+    "maxDuration": 156,
+    "lastRequest": "2025-05-23T10:44:15.456Z"
+  }
+}</code></pre>
+                        </div>
+                        
+                        <div class="metrics-features">
+                            <h4>Métricas Disponíveis</h4>
+                            <ul>
+                                <li><strong>count:</strong> Número total de requisições</li>
+                                <li><strong>averageDuration:</strong> Tempo médio de resposta</li>
+                                <li><strong>minDuration:</strong> Tempo mínimo registrado</li>
+                                <li><strong>maxDuration:</strong> Tempo máximo registrado</li>
+                                <li><strong>lastRequest:</strong> Timestamp da última requisição</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Security Guide -->
+                    <div class="docs-panel" id="security">
+                        <div class="docs-header">
+                            <h3>Auditoria e Segurança</h3>
+                            <p>Implemente logging de auditoria para compliance e segurança</p>
+                        </div>
+                        
+                        <div class="security-guide">
+                            <h4>Logging de Auditoria Automático</h4>
+                            <pre><code class="language-javascript">app.use(requestInterceptor({
+  enableAuditLogging: true,
+  onRequest: (req, requestInfo) => {
+    // 🚨 Detecção de atividade suspeita
+    if (requestInfo.bodySize > 10 * 1024 * 1024) { // > 10MB
+      securityAlert.trigger('Large payload detected', {
+        ip: requestInfo.clientIp,
+        size: requestInfo.bodySize,
+        endpoint: requestInfo.url
+      });
+    }
+    
+    // 📋 Log para compliance (LGPD, GDPR)
+    auditLogger.log({
+      action: `${requestInfo.method} ${requestInfo.url}`,
+      user: req.user?.id,
+      ip: requestInfo.clientIp,
+      timestamp: requestInfo.timestamp,
+      dataAccessed: requestInfo.path.includes('/personal-data')
+    });
+  }
+}));</code></pre>
+                        </div>
+                        
+                        <div class="security-features">
+                            <h4>Recursos de Segurança</h4>
+                            <ul>
+                                <li><strong>IP Tracking:</strong> Rastreamento automático de IPs</li>
+                                <li><strong>Payload Protection:</strong> Proteção contra payloads grandes</li>
+                                <li><strong>Header Analysis:</strong> Análise de headers suspeitos</li>
+                                <li><strong>Compliance Logging:</strong> Logs estruturados para auditoria</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- TypeScript Guide -->
+                    <div class="docs-panel" id="typescript">
+                        <div class="docs-header">
+                            <h3>TypeScript - Suporte Completo</h3>
+                            <p>Aproveite tipagem forte e autocomplete inteligente</p>
+                        </div>
+                        
+                        <div class="typescript-guide">
+                            <h4>Imports e Tipagem</h4>
+                            <pre><code class="language-typescript">import { 
+  requestInterceptor, 
+  RequestInterceptorOptions,
+  MetricsCollector,
+  HttpLogger,
+  LogLevel 
+} from 'advanced-http-request-interceptor';
+
+const options: RequestInterceptorOptions = {
+  enableLogging: true,
+  logLevel: 'info' as LogLevel,
+  enablePerformanceMonitoring: true,
+  onRequest: (req, requestInfo) => {
+    // Autocomplete completo e validação de tipos
+    console.log(`${requestInfo.method} ${requestInfo.url} - ${requestInfo.duration}ms`);
+  }
+};
+
+app.use(requestInterceptor(options));</code></pre>
+                            
+                            <h4>Interfaces Disponíveis</h4>
+                            <pre><code class="language-typescript">interface RequestInfo {
+  method: string;
+  url: string;
+  path: string;
+  headers: any;
+  query: any;
+  params: any;
+  timestamp: string;
+  clientIp: string | undefined;
+  userAgent: string | undefined;
+  body: any;
+  duration?: number;
+  contentLength?: number;
+  bodySize?: number;
+}
+
+interface RouteMetrics {
+  count: number;
+  totalDuration: number;
+  averageDuration: number;
+  minDuration: number;
+  maxDuration: number;
+  lastRequest: string;
+}</code></pre>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Cases -->
+                    <div class="docs-panel" id="advanced">
+                        <div class="docs-header">
+                            <h3>Casos de Uso Avançados</h3>
+                            <p>Integre com sistemas APM, rate limiting e analytics</p>
+                        </div>
+                        
+                        <div class="advanced-cases">
+                            <div class="case-section">
+                                <h4>1. Integração com APM (New Relic, DataDog)</h4>
+                                <pre><code class="language-javascript">app.use(requestInterceptor({
+  onRequest: (req, requestInfo) => {
+    // New Relic
+    newrelic.recordMetric(`Custom/HTTP/${requestInfo.method}${requestInfo.path}`, requestInfo.duration);
+    
+    // DataDog
+    statsd.timing('http.request.duration', requestInfo.duration, [`route:${requestInfo.path}`]);
+    
+    // Prometheus
+    httpRequestDuration.labels(requestInfo.method, requestInfo.path).observe(requestInfo.duration / 1000);
+  }
+}));</code></pre>
+                            </div>
+                            
+                            <div class="case-section">
+                                <h4>2. Rate Limiting Inteligente</h4>
+                                <pre><code class="language-javascript">const rateLimitMap = new Map();
+
+app.use(requestInterceptor({
+  onRequest: (req, requestInfo) => {
+    const key = requestInfo.clientIp;
+    const now = Date.now();
+    const requests = rateLimitMap.get(key) || [];
+    
+    // Remove requisições antigas (última hora)
+    const recentRequests = requests.filter(time => now - time < 3600000);
+    
+    if (recentRequests.length > 100) { // Max 100 req/hour
+      throw new Error('Rate limit exceeded');
+    }
+    
+    recentRequests.push(now);
+    rateLimitMap.set(key, recentRequests);
+  }
+}));</code></pre>
+                            </div>
+                            
+                            <div class="case-section">
+                                <h4>3. A/B Testing e Analytics</h4>
+                                <pre><code class="language-javascript">app.use(requestInterceptor({
+  onRequest: (req, requestInfo) => {
+    // Tracking de A/B tests
+    if (requestInfo.headers['x-ab-test']) {
+      analytics.track('ab_test_request', {
+        test: requestInfo.headers['x-ab-test'],
+        variant: requestInfo.headers['x-ab-variant'],
+        endpoint: requestInfo.path,
+        duration: requestInfo.duration
+      });
+    }
+    
+    // Análise de comportamento
+    userBehavior.track({
+      userId: req.user?.id,
+      action: `${requestInfo.method} ${requestInfo.path}`,
+      timestamp: requestInfo.timestamp,
+      metadata: {
+        userAgent: requestInfo.userAgent,
+        duration: requestInfo.duration
+      }
+    });
+  }
+}));</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="docs-footer">
+                <div class="docs-links">
+                    <a href="https://github.com/elSilveira/advanced-http-request-interceptor" class="btn btn-outline">
+                        <i class="fab fa-github"></i>
+                        Ver no GitHub
+                    </a>
+                    <a href="https://npmjs.com/package/advanced-http-request-interceptor" class="btn btn-outline">
+                        <i class="fab fa-npm"></i>
+                        Página do NPM
+                    </a>
+                    <a href="https://github.com/elSilveira/advanced-http-request-interceptor/issues" class="btn btn-outline">
+                        <i class="fas fa-bug"></i>
+                        Reportar Bug
                     </a>
                 </div>
             </div>

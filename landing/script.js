@@ -350,4 +350,69 @@ window.addEventListener('scroll', function() {
     if (heroAnimation) {
         heroAnimation.style.transform = `translateY(${scrolled * 0.2}px)`;
     }
+});
+
+// Documentation navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Documentation tabs functionality
+    const docsNavItems = document.querySelectorAll('.docs-nav-item');
+    const docsPanels = document.querySelectorAll('.docs-panel');
+    
+    docsNavItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const targetDoc = this.getAttribute('data-doc');
+            
+            // Remove active class from all nav items and panels
+            docsNavItems.forEach(nav => nav.classList.remove('active'));
+            docsPanels.forEach(panel => panel.classList.remove('active'));
+            
+            // Add active class to clicked nav item and corresponding panel
+            this.classList.add('active');
+            const targetPanel = document.getElementById(targetDoc);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+        });
+    });
+    
+    // Copy button functionality for code blocks
+    document.querySelectorAll('pre code').forEach(codeBlock => {
+        const pre = codeBlock.parentElement;
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-code-btn';
+        copyButton.innerHTML = '<i class="fas fa-copy"></i>';
+        copyButton.title = 'Copiar código';
+        
+        copyButton.addEventListener('click', function() {
+            const code = codeBlock.textContent;
+            copyToClipboard(code);
+            
+            // Visual feedback
+            this.innerHTML = '<i class="fas fa-check"></i>';
+            this.style.color = '#38a169';
+            
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-copy"></i>';
+                this.style.color = '';
+            }, 2000);
+        });
+        
+        // Position the button
+        pre.style.position = 'relative';
+        pre.appendChild(copyButton);
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 }); 
