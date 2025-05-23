@@ -1,6 +1,6 @@
 {
   "name": "advanced-http-request-interceptor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🚀 Biblioteca profissional para interceptação, monitoramento e logging avançado de requisições HTTP em aplicações Express.js. Sistema completo com métricas em tempo real, auditoria de segurança, detecção de performance e suporte nativo ao TypeScript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,10 +9,11 @@
     "prepare": "npm run build",
     "test": "node test/test-interceptor.js",
     "test:advanced": "node test/advanced-test.js",
+    "test:quick": "node test/quick-test.js",
     "dev": "tsc --watch",
     "clean": "rmdir /s /q dist 2>nul || echo \"Directory cleaned\"",
     "lint": "npx tsc --noEmit",
-    "prepublishOnly": "npm run clean && npm run build && npm test"
+    "prepublishOnly": "npm run clean && npm run build && npm run test:quick"
   },
   "keywords": [
     "express",

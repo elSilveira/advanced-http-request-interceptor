@@ -35,6 +35,9 @@ app.get('/requests', (req, res) => {
   res.json(requests);
 });
 
+// Verifica se estamos rodando para npm publish ou teste manual
+const isAutomatedTest = process.argv.includes('--automated') || process.env.npm_config_user_agent?.includes('npm');
+
 // Iniciar o servidor
 const server = app.listen(3000, () => {
   console.log('Servidor de testes rodando na porta 3000');
@@ -51,12 +54,18 @@ const server = app.listen(3000, () => {
       corpo: r.body ? JSON.stringify(r.body).substring(0, 30) : 'N/A'
     })));
     
-    console.log('\nO servidor continua em execução para testes manuais.');
-    console.log('Para testar manualmente, tente estas requisições:');
-    console.log('- GET:  curl http://localhost:3000/api/teste');
-    console.log('- POST: curl -X POST -H "Content-Type: application/json" -d \'{"nome":"teste","valor":123}\' http://localhost:3000/api/teste');
-    console.log('- VER:  curl http://localhost:3000/requests');
-    console.log('\nPressione Ctrl+C para encerrar.');
+    if (isAutomatedTest) {
+      console.log('\n🚀 Testes concluídos para build/publish. Encerrando servidor...');
+      server.close();
+      process.exit(0);
+    } else {
+      console.log('\nO servidor continua em execução para testes manuais.');
+      console.log('Para testar manualmente, tente estas requisições:');
+      console.log('- GET:  curl http://localhost:3000/api/teste');
+      console.log('- POST: curl -X POST -H "Content-Type: application/json" -d \'{"nome":"teste","valor":123}\' http://localhost:3000/api/teste');
+      console.log('- VER:  curl http://localhost:3000/requests');
+      console.log('\nPressione Ctrl+C para encerrar.');
+    }
   }).catch(err => {
     console.error('❌ Erro nos testes:', err);
     server.close();
